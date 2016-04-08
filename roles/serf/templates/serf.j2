@@ -19,7 +19,7 @@ fi
 {%- set serf_tcp_comment="'serf control'" -%}
 {%- set serf_tcp_rule="-p tcp --dport 7946 -i " +
         serf_discovery_interface +
-        " -j ACCEPT -m comment --comment " +
+        " -m conntrack --ctstate NEW -j ACCEPT -m comment --comment " +
         serf_tcp_comment -%}
 
 case $1 in
